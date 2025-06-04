@@ -5,12 +5,14 @@ public class ConsumoDto {
     private String año;
     private String nombreEstablecimiento;
     private String monto;
+    private String numeroTarjeta;
 
-    public ConsumoDto(String mes, String año, String nombreEstablecimiento, String monto) {
+    public ConsumoDto(String mes, String año, String nombreEstablecimiento, String monto, String numeroTarjeta) {
         this.mes = mes;
         this.año = año;
         this.nombreEstablecimiento = nombreEstablecimiento;
         this.monto = monto;
+        this.numeroTarjeta = numeroTarjeta;
     }
 
     public String getMes() {
@@ -43,5 +45,13 @@ public class ConsumoDto {
 
     public void setMonto(String monto) {
         this.monto = monto;
+    }
+
+    public String getNumeroTarjeta() {
+        return numeroTarjeta;
+    }
+
+    public void setNumeroTarjeta(String numeroTarjeta) {
+        this.numeroTarjeta = numeroTarjeta;
     }
 }

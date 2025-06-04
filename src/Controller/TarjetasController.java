@@ -1,7 +1,9 @@
 package Controller;
 
 import Modelos.Cliente;
+import Modelos.Consumo;
 import Modelos.Tarjeta;
+import Modelos.TarjetaDebito;
 import dto.ConsumoDto;
 import dto.TarjetaCreditoDto;
 import dto.TarjetaDebitoDto;
@@ -28,8 +30,22 @@ public class TarjetasController {
         return INSTANCE;
     }
 
-    public int agregarConsumo(ConsumoDto dto){
+    public int crearConsumo(ConsumoDto dto) {
+        for (Tarjeta t : tarjetas) {
+            if (t.getNumeroTarjeta().equals(dto.getNumeroTarjeta())) {
+                // transformar DTO en objeto Consumo real
+                int mes = Integer.parseInt(dto.getMes());
+                int año = Integer.parseInt(dto.getAño());
+                float monto = Float.parseFloat(dto.getMonto());
+                String nombreEstablecimiento = dto.getNombreEstablecimiento();
+                String numeroTarjeta = dto.getNumeroTarjeta();
 
+                Consumo nuevoConsumo = new Consumo(mes, año, nombreEstablecimiento, monto, numeroTarjeta);
+                t.agregarConsumo(nuevoConsumo);
+                return 0;
+            }
+        }
+        return -1; // tarjeta no encontrada
     }
 
     /**
