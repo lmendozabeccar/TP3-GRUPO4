@@ -15,7 +15,7 @@ public class JAltaConsumo extends JFrame {
     public JAltaConsumo() {
         setTitle("Formulario de Cliente");
         setSize(400, 300);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLayout(new GridLayout(7, 2)); // 5 campos + 2 botones
 
         add(new JLabel("MES:"));
@@ -85,7 +85,13 @@ public class JAltaConsumo extends JFrame {
             return;
         }
         // una vez t.odo verificado, se crea el dto
-        ConsumoDto dto = new ConsumoDto(mesField.getText(), añoField.getText(), montoField.getText(), nombreEstablecimientoField.getText(), numeroTarjetaField.getText());
+        ConsumoDto dto = new ConsumoDto(
+                mesField.getText(),
+                añoField.getText(),
+                nombreEstablecimientoField.getText(),
+                montoField.getText(),
+                numeroTarjetaField.getText()
+        );
         tarjetasController = TarjetasController.getInstance(); // se obtiene la instancia
         int respuesta = tarjetasController.crearConsumo(dto); // se le pasa el dto a la funcion para que la procese
         if (respuesta == -1) {

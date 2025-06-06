@@ -13,6 +13,8 @@ public abstract class Tarjeta {
         }
         consumos.add(c);
     }
+    // En Tarjeta.java
+    public abstract float calcularConsumoReal(int mes, int año);
 
     public Cliente getCliente() {
         return cliente;

@@ -1,9 +1,6 @@
 package Controller;
 
-import Modelos.Cliente;
-import Modelos.Consumo;
-import Modelos.Tarjeta;
-import Modelos.TarjetaDebito;
+import Modelos.*;
 import dto.ConsumoDto;
 import dto.TarjetaCreditoDto;
 import dto.TarjetaDebitoDto;
@@ -47,17 +44,42 @@ public class TarjetasController {
         }
         return -1; // tarjeta no encontrada
     }
-
-    /**
-    public float calcularConsumoReal() {
-
+    public float calcularConsumoReal(int mes, int año, String numeroTarjeta) {
+        for (Tarjeta t : tarjetas) {
+            if (t.getNumeroTarjeta().equals(numeroTarjeta)) {
+                return t.calcularConsumoReal(mes, año);
+            }
+        }
+        return -1f; // Tarjeta no encontrada
     }
 
     public int darAltaTarjetaDebito(TarjetaDebitoDto dto) {
+        for (Tarjeta t : tarjetas) {
+            if (t.getNumeroTarjeta().equals(dto.getNumeroTarjeta())) {
+                return -1; // Ya existe una tarjeta con ese número
+            }
+        }
 
+        int dni = Integer.parseInt(dto.getDniCliente());
+        Cliente cliente = new Cliente(dto.getNombreCliente(), dni);
+        TarjetaDebito tarjeta = new TarjetaDebito(dto.getNumeroTarjeta(), cliente, dto.getPorcentajeIVA());
+        tarjetas.add(tarjeta);
+        clientes.add(cliente);
+        return 0; // Alta exitosa
     }
 
     public int darAltaTarjetaCredito(TarjetaCreditoDto dto) {
+        for (Tarjeta t : tarjetas) {
+            if (t.getNumeroTarjeta().equals(dto.getNumeroTarjeta())) {
+                return -1; // Ya existe una tarjeta con ese número
+            }
+        }
 
-    } **/
+        int dni = Integer.parseInt(dto.getDniCliente());
+        Cliente cliente = new Cliente(dto.getNombreCliente(), dni);
+        Tarjeta tarjeta = new TarjetaCredito(dto.getNumeroTarjeta(), cliente, dto.getPorcentajeInteres());
+        tarjetas.add(tarjeta);
+        clientes.add(cliente);
+        return 0; // Alta exitosa
+    }
 }

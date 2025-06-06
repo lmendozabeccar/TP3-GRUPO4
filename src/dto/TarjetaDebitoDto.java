@@ -1,51 +1,31 @@
 package dto;
 
-import Modelos.Consumo;
-
-import java.util.ArrayList;
-
 public class TarjetaDebitoDto {
-    private String interes;
-    private String cliente;
+    private String nombreCliente;
+    private String dniCliente;
     private String numeroTarjeta;
-    private ArrayList<Consumo> consumos = new ArrayList<>();
+    private float porcentajeIVA;
 
-    public TarjetaDebitoDto(String interes, String cliente, String numeroTarjeta, ArrayList<Consumo> consumos) {
-        this.interes = interes;
-        this.cliente = cliente;
+    public TarjetaDebitoDto(String nombreCliente, String dniCliente, String numeroTarjeta, float porcentajeIVA) {
+        this.nombreCliente = nombreCliente;
+        this.dniCliente = dniCliente;
         this.numeroTarjeta = numeroTarjeta;
-        this.consumos = consumos;
+        this.porcentajeIVA = porcentajeIVA;
     }
 
-    public ArrayList<Consumo> getConsumos() {
-        return consumos;
+    public String getNombreCliente() {
+        return nombreCliente;
     }
 
-    public void setConsumos(ArrayList<Consumo> consumos) {
-        this.consumos = consumos;
+    public String getDniCliente() {
+        return dniCliente;
     }
 
     public String getNumeroTarjeta() {
         return numeroTarjeta;
     }
 
-    public void setNumeroTarjeta(String numeroTarjeta) {
-        this.numeroTarjeta = numeroTarjeta;
-    }
-
-    public String getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(String cliente) {
-        this.cliente = cliente;
-    }
-
-    public String getInteres() {
-        return interes;
-    }
-
-    public void setInteres(String interes) {
-        this.interes = interes;
+    public float getPorcentajeIVA() {
+        return porcentajeIVA;
     }
 }
