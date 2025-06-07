@@ -19,13 +19,18 @@ Este proyecto es una aplicación de escritorio desarrollada en Java con Swing qu
 │   │   ├── ConsumoDto.java
 │   │   ├── TarjetaCreditoDto.java
 │   │   └── TarjetaDebitoDto.java
+│   ├── Modelos/
+│   │   ├── Cliente.java
+│   │   ├── Consumo.java
+│   │   ├── Tarjeta.java
+│   │   ├── TarjetaCredito.java
+│   │   └── TarjetaDebito.java
 │   ├── Vista/
 │   │   ├── JAltaTarjetaDebito.java
 │   │   ├── JAltaTarjetaCredito.java
 │   │   ├── JAltaConsumo.java
 │   │   ├── JCalcularConsumoReal.java
 │   │   └── Main.java
-│   └── ... otros paquetes (Model, Utils, etc. si aplican)
 ```
 
 ## Cómo ejecutar
