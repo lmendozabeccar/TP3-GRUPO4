@@ -61,9 +61,17 @@ public class JAltaConsumo extends JFrame {
     }
 
     private void validarFormulario() {
-        if (mesField.getText().trim().isEmpty()) {
+        String mesTexto = mesField.getText().trim();
+        if (mesTexto.isEmpty()) {
             JOptionPane.showMessageDialog(this,
                     "El campo MES no puede estar vacío.");
+            return;
+        }
+        try {
+            Integer.parseInt(mesTexto);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this,
+                    "¡Error! El mes debe ser un número (por ejemplo, 1 para enero).");
             return;
         }
 

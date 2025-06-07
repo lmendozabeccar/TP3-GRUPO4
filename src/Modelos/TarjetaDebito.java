@@ -18,8 +18,8 @@ public class TarjetaDebito extends Tarjeta {
             }
         }
 
-        // Se aplica IVA al total
-        return total * (1 + porcentajeIVA / 100f);
+        // Se aplica la devolución del IVA (se descuenta)
+        return total * (1 - porcentajeIVA / 100f);
     }
 
     public float getPorcentajeIVA() {
